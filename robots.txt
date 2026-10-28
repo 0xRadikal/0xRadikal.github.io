@@ -1,0 +1,15 @@
+# https://0xradikal.github.io/
+#
+# GitHub Pages serves several project sites under this one host:
+#   /Free-Telegram-Proxy/   /Free-v2ray-Configs/   /profile-card/
+# Crawlers read robots.txt only from the host root, so this single file
+# applies to all of them (robots.txt files inside project folders are ignored).
+#
+# Everything published here is public and meant to be found and quoted,
+# by search engines and AI assistants alike, so nothing is disallowed.
+
+User-agent: *
+Allow: /
+
+Sitemap: https://0xradikal.github.io/Free-Telegram-Proxy/sitemap.xml
+Sitemap: https://0xradikal.github.io/Free-v2ray-Configs/sitemap.xml
