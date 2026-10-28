@@ -1,0 +1,21 @@
+# Raydikalx (0xradikal.github.io)
+
+> Open-source projects by 0xRadikal that help people reach the free internet: a verified Telegram MTProto proxy list and a free V2Ray config list, both rebuilt automatically about every 15 minutes on GitHub Actions. Everything is public and MIT-licensed.
+
+Each project has its own site under this host. Data files are plain text or JSON and can be fetched directly. Proxies and configs are tested from the publisher's test runner, so availability from a specific country or ISP is not guaranteed.
+
+## Projects
+
+- [Free Telegram Proxy](https://0xradikal.github.io/Free-Telegram-Proxy/): verified Telegram MTProto proxy list (English and Persian), with a Top 100, per-type and per-country lists
+- [Free Telegram Proxy - llms.txt](https://0xradikal.github.io/Free-Telegram-Proxy/llms.txt): the project's own guide for AI agents, with links to the methodology and data files
+- [Free V2Ray Configs](https://0xradikal.github.io/Free-v2ray-Configs/): free V2Ray / Xray configs (VLESS, VMess, Trojan, Shadowsocks, Hysteria2) with live status
+
+## Source code
+
+- [Free-Telegram-Proxy on GitHub](https://github.com/0xRadikal/Free-Telegram-Proxy): source, README and raw data
+- [Free-v2ray-Configs on GitHub](https://github.com/0xRadikal/Free-v2ray-Configs): source, README and raw data
+
+## Optional
+
+- [Profile card](https://0xradikal.github.io/profile-card/): about the author
+- [GitHub profile](https://github.com/0xRadikal)

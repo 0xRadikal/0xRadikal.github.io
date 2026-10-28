@@ -1,0 +1,33 @@
+name: check
+
+# Validates the host-root files (robots.txt, sitemaps, llms.txt, security.txt,
+# IndexNow key, icons, home page). The weekly run also checks the deployed site,
+# which catches an expiring security.txt (fails < 30 days before Expires).
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 4 * * 1"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: check-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Local checks
+        run: python3 tools/check.py
+      - name: Live checks
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        run: python3 tools/check.py --live

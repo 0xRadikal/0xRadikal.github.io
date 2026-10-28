@@ -1,0 +1,8 @@
+# Security contact for https://0xradikal.github.io/ (RFC 9116).
+# Please report privately; do not open public issues for vulnerabilities.
+Contact: https://github.com/0xRadikal/Free-Telegram-Proxy/security/advisories/new
+Contact: https://github.com/0xRadikal
+Policy: https://github.com/0xRadikal/Free-Telegram-Proxy/blob/main/SECURITY.md
+Preferred-Languages: en, fa
+Canonical: https://0xradikal.github.io/.well-known/security.txt
+Expires: 2027-10-01T00:00:00Z

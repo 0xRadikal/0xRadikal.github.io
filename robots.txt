@@ -1,15 +1,29 @@
-# https://0xradikal.github.io/
+# robots.txt for https://0xradikal.github.io/
 #
-# GitHub Pages serves several project sites under this one host:
+# This host serves several GitHub Pages project sites:
 #   /Free-Telegram-Proxy/   /Free-v2ray-Configs/   /profile-card/
-# Crawlers read robots.txt only from the host root, so this single file
-# applies to all of them (robots.txt files inside project folders are ignored).
+# Crawlers only read robots.txt from the host root (RFC 9309; files inside
+# project folders are ignored), so this one file covers all of them.
 #
-# Everything published here is public and meant to be found and quoted,
-# by search engines and AI assistants alike, so nothing is disallowed.
+# Everything here is public, open source (MIT) and meant to be found, cited
+# and reused - by search engines and by AI assistants alike. Nothing is
+# disallowed.
+#
+# Content-Signal (https://contentsignals.org/) states how the content may be
+# used: search = search results, ai-input = live AI answers / grounding,
+# ai-train = model training. Parsers that do not know the line ignore it.
 
 User-agent: *
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
 Allow: /
 
+# The "*" group above is the one every crawler uses, including Googlebot,
+# Bingbot, Applebot(-Extended), Google-Extended, OAI-SearchBot, GPTBot,
+# ChatGPT-User, Claude-SearchBot, ClaudeBot, Claude-User, PerplexityBot and
+# Perplexity-User. Named groups are deliberately not added: under RFC 9309 a
+# crawler that matches a named group ignores "*" entirely, so a later rule
+# added to "*" would silently stop applying to it.
+
+Sitemap: https://0xradikal.github.io/sitemap.xml
 Sitemap: https://0xradikal.github.io/Free-Telegram-Proxy/sitemap.xml
 Sitemap: https://0xradikal.github.io/Free-v2ray-Configs/sitemap.xml
