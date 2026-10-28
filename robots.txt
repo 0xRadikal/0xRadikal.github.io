@@ -9,12 +9,15 @@
 # and reused - by search engines and by AI assistants alike. Nothing is
 # disallowed.
 #
-# Content-Signal (https://contentsignals.org/) states how the content may be
-# used: search = search results, ai-input = live AI answers / grounding,
-# ai-train = model training. Parsers that do not know the line ignore it.
+# Content use policy (Content Signals, https://contentsignals.org/):
+#   search=yes, ai-input=yes, ai-train=yes
+# i.e. this content may be indexed for search, used in live AI answers and
+# used to train models. It is kept as a comment on purpose: Content-Signal is
+# not a standard robots.txt field - Google lists it as unsupported
+# (google/robotstxt kUnsupportedTags) and Bing's robots.txt tester and
+# Lighthouse report it as an error. The rules below already allow everything.
 
 User-agent: *
-Content-Signal: search=yes, ai-input=yes, ai-train=yes
 Allow: /
 
 # The "*" group above is the one every crawler uses, including Googlebot,

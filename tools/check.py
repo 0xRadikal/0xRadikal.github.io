@@ -49,10 +49,16 @@ def check_robots(src):
     check(not re.search(r"(?im)^\s*disallow\s*:\s*\S", src), "robots.txt: unexpected non-empty Disallow")
     groups = re.findall(r"(?im)^\s*user-agent\s*:\s*(\S+)", src)
     check(groups == ["*"], f"robots.txt: expected a single '*' group, got {groups}")
-    for line in re.findall(r"(?im)^\s*content-signal\s*:\s*(.+)$", src):
-        pairs = dict(p.strip().split("=", 1) for p in line.split(","))
-        check(set(pairs) <= {"search", "ai-input", "ai-train"} and set(pairs.values()) <= {"yes", "no"},
-              f"robots.txt: bad Content-Signal {line!r}")
+    # Only the fields every major parser accepts. Google supports exactly these
+    # four; google/robotstxt lists content-signal, crawl-delay, host, noindex...
+    # as kUnsupportedTags (reported in Search Console), Lighthouse <= 12.x fails
+    # its robots-txt audit on them and Bing's tester flags them as errors.
+    for n, line in enumerate(src.splitlines(), 1):
+        body = line.split("#", 1)[0].strip()
+        if body:
+            field = body.split(":", 1)[0].strip().lower() if ":" in body else None
+            check(field in {"user-agent", "allow", "disallow", "sitemap"},
+                  f"robots.txt line {n}: non-standard directive {body!r}")
     maps = rp.site_maps() or []
     check(f"{HOST}/sitemap.xml" in maps, "robots.txt: root sitemap index not listed")
     return maps

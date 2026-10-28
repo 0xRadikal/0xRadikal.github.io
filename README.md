@@ -8,7 +8,7 @@ things only work from the host root, so they live here:
 
 | File | Why it must be at the root |
 |---|---|
-| `robots.txt` | Crawlers read robots.txt only from the host root (RFC 9309). Allows everything, adds a [Content-Signal](https://contentsignals.org/) line, lists the sitemaps. |
+| `robots.txt` | Crawlers read robots.txt only from the host root (RFC 9309). Allows everything and lists the sitemaps. Only the four standard fields are used (`user-agent`, `allow`, `disallow`, `sitemap`); the [Content Signals](https://contentsignals.org/) policy is stated as a comment, because a `Content-Signal:` line is reported as an error by Bing's tester, Lighthouse and Search Console. |
 | `sitemap.xml`, `sitemap-root.xml` | Sitemap index pointing at each project's sitemap plus the host-level pages. |
 | `index.html` + icons | Google shows one favicon and one site name per hostname, taken from the host home page. Without it every project shows a generic icon. |
 | `llms.txt` | Root guide for AI agents ([llmstxt.org](https://llmstxt.org/)); links each project's own `llms.txt`. |
